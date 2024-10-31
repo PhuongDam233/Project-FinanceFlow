@@ -1,0 +1,206 @@
+.blogpostpage {
+  .blogdetail {
+    padding-bottom: 120px;
+    padding-top: calc(var(--height-header) + 56px);
+    .container {
+      gap: initial;
+    }
+    .titlemain {
+      grid-column: 2/12;
+      .author {
+        margin-bottom: 39px;
+      }
+      .textbox {
+        gap: 16px;
+        .heading {
+          font-size: var(--fs1-h1);
+          line-height: var(--lh1-h1);
+          letter-spacing: var(--ls1-h1);
+          font-family: db;
+        }
+      }
+    }
+    .imgmain {
+      grid-column: 1/13;
+      margin-top: 60px;
+      margin-bottom: 43px;
+      img {
+        @include size(100%, 100%);
+      }
+    }
+    .blogarticle {
+      grid-column: 2/12;
+      h2 {
+        font-size: var(--fs2-h2);
+        line-height: var(--lh2-h2);
+        letter-spacing: var(--ls2-h2);
+        font-family: db;
+        margin-bottom: 38px;
+      }
+      h3 {
+        font-size: 2.8rem;
+        line-height: 3rem;
+        letter-spacing: 0.028rem;
+        font-family: db;
+        margin-bottom: 22px;
+        margin-top: 30px;
+      }
+      & > P {
+        &:not(:last-child) {
+          margin-bottom: 12px;
+        }
+        strong {
+          font-family: db;
+        }
+        a {
+          color: var(--white-cl);
+          border-bottom: 1px solid var(--white-cl);
+        }
+      }
+      ul {
+        li {
+          &::before {
+            content: "";
+            background: var(--white-cl);
+            @include size(5px, 5px, true);
+            left: 12px;
+            @include midPositonY;
+          }
+          position: relative;
+          padding-left: 37px;
+        }
+      }
+      figure {
+        margin-top: 48px;
+        margin-bottom: 14px;
+        img {
+          width: 100%;
+          height: auto;
+        }
+        figcaption {
+          font-family: dr;
+          letter-spacing: var(--ls-body);
+          color: var(--white-cl);
+          font-size: var(--fs-body2);
+          line-height: var(--lh-body2);
+          font-style: italic;
+          text-align: center;
+          margin-top: 12px;
+        }
+      }
+      blockquote {
+        margin-top: 32px;
+        margin-bottom: 17px;
+        padding: 40px 50px;
+        background: var(--blue-cl);
+        border-radius: 30px;
+        font-size: 2.2rem;
+        line-height: 3.8rem;
+        letter-spacing: 0rem;
+      }
+      .socials {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 43px;
+        p {
+          margin-right: 6px;
+        }
+        a {
+          @include size(36px, 36px);
+        }
+        gap: 12px;
+      }
+    }
+    @include sm {
+      padding-bottom: 80px;
+      .blogarticle {
+        h2 {
+          font-size: 2.8rem;
+          line-height: 3.6rem;
+          letter-spacing: 0rem;
+        }
+      }
+    }
+    @include xs {
+      padding-top: calc(var(--height-header) + 48px);
+      .container {
+        grid-template-columns: initial;
+      }
+      .titlemain {
+        grid-column: initial;
+        .author {
+          margin-bottom: 32px;
+        }
+        .textbox {
+          .heading {
+            font-size: 2.8rem;
+            line-height: 3.6rem;
+            letter-spacing: 0rem;
+          }
+        }
+      }
+      .imgmain {
+        grid-column: initial;
+        margin-bottom: 30px;
+        margin-top: 36px;
+      }
+      .blogarticle {
+        grid-column: initial;
+        h2 {
+          margin-bottom: 24px;
+        }
+        h3 {
+          margin-top: 14px;
+          margin-bottom: 26px;
+        }
+        figure {
+          margin-top: 31px;
+          margin-bottom: 32px;
+          figcaption {
+            margin-top: 10px;
+            text-align: left;
+          }
+        }
+        blockquote {
+          margin-top: 30px;
+          margin-bottom: 33px;
+        }
+        .socials {
+          margin-top: 37px;
+        }
+      }
+    }
+  }
+  .subscribe {
+    padding: 91px 0px;
+    .container {
+      align-items: center;
+    }
+  }
+  .post {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    .textbox {
+      margin-bottom: 56px;
+    }
+    @include sm {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      .article__lists {
+        grid-template-columns: 1fr;
+      }
+    }
+    @include xs {
+      .textbox {
+        gap: 14px;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

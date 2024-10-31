@@ -1,0 +1,142 @@
+.blogpage {
+  .blogmain {
+    padding-top: calc(var(--height-header) + 70px);
+    padding-bottom: 92px;
+    .textbox {
+      padding-bottom: 36px;
+      p {
+        max-width: 568px;
+      }
+    }
+    .article__lists-item {
+      .imgarticle {
+        height: 100%;
+      }
+      .author {
+        display: none;
+      }
+    }
+
+    @include sm {
+      .article__lists-item {
+        grid-template-columns: 1fr;
+        gap: initial;
+        .blog {
+          padding: 6px 35px 34px 24px;
+          order: initial;
+          position: relative;
+        }
+        .imgarticle {
+          order: initial;
+        }
+        .author {
+          display: flex;
+        }
+      }
+    }
+    @include xs {
+      padding-top: calc(var(--height-header) + 43px);
+      padding-bottom: 80px;
+      .textbox {
+        align-items: initial;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 7px;
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+  .subscribe {
+    padding: 93px 0;
+    .container {
+      align-items: center;
+    }
+  }
+  .post {
+    padding-top: 148px;
+    padding-bottom: 80px;
+    .textbox {
+      margin-bottom: 56px;
+    }
+    &__lists {
+      &.--active {
+        display: grid;
+      }
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap);
+      display: none;
+      transition: all 0.8s ease-in-out;
+    }
+    &__pagination {
+      margin-top: 26px;
+      gap: 16px;
+      @include mid(true);
+      &__number {
+        color: var(--white-cl);
+        @include transition;
+        &.--selected {
+          color: var(--blue-light-cl);
+        }
+        &:hover {
+          color: var(--blue-light-cl);
+        }
+      }
+      &__prev,
+      &__next {
+        background: var(--blue-cl);
+        @include mid(true);
+        @include size(36px, 36px);
+        border-radius: 100%;
+        @include transition;
+        &:hover {
+          background: var(--blue-light-cl);
+        }
+        &.--disable {
+          background: rgba(225, 225, 225, 0.1);
+          cursor: default;
+          pointer-events: none;
+          img {
+            opacity: 0.2;
+          }
+        }
+      }
+    }
+    @include sm {
+      &__lists {
+        grid-template-columns: 1fr;
+        &__pagination {
+          margin-top: 16px;
+        }
+      }
+    }
+    @include xs {
+      padding: 80px 0;
+      .textbox {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .heading {
+          margin-bottom: 24px;
+        }
+      }
+    }
+    @include xxs {
+      .textbox {
+        margin-bottom: 25px;
+        .heading {
+          margin-bottom: 16px;
+        }
+        .post__tabs {
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+          &-item {
+            height: 48px;
+          }
+        }
+      }
+    }
+  }
+}

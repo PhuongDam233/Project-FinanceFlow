@@ -1,0 +1,119 @@
+.footer {
+  padding-top: 54px;
+  background-color: var(--blue-cl);
+  &__top {
+    margin-bottom: 83px;
+    display: flex;
+    justify-content: space-between;
+    .iconsocial {
+      display: flex;
+      gap: 12px;
+      img {
+        @include size(36px, 36px);
+      }
+    }
+  }
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 125px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    &-left {
+      .title {
+        font-family: db;
+        text-transform: uppercase;
+        height: 56px;
+        border-bottom: 1px solid var(--white-cl);
+      }
+      .list {
+        margin-top: 24px;
+        column-count: 2;
+        li {
+          a {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            letter-spacing: 0.14rem;
+            text-transform: uppercase;
+            color: var(--white-cl);
+            @include transition;
+            &:hover {
+              color: var(--blue-light-cl);
+            }
+          }
+        }
+      }
+    }
+    &-right {
+      padding: 49px 30px 44px 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      max-width: 465px;
+      border-radius: 40px;
+      .title {
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        font-family: db;
+        line-height: 2.6rem;
+        letter-spacing: 0.09rem;
+        margin-bottom: 12px;
+      }
+      .btngroup {
+        margin-top: 24px;
+        justify-content: space-between;
+        .btn {
+          gap: 8px;
+        }
+      }
+    }
+  }
+  &__bottom {
+    height: 91px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      font-size: var(--fs-text-footer);
+      line-height: var(--lh-text-footer);
+      letter-spacing: var(--ls-text-footer);
+    }
+  }
+  @include xs {
+    padding-top: 42px;
+    &__top {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 38px;
+      img {
+        max-width: 154px;
+      }
+    }
+    &__middle {
+      padding-bottom: 32px;
+      flex-direction: column;
+      &-left {
+        .list {
+          margin-top: 24px;
+          margin-bottom: 53px;
+        }
+      }
+      &-right {
+        margin-left: auto;
+        margin-right: auto;
+        .btngroup {
+          flex-direction: column;
+          gap: 16px;
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &__bottom {
+      height: 109px;
+      p {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}

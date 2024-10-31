@@ -1,0 +1,71 @@
+.menumobile {
+  &.--show {
+    @include visible(1);
+  }
+  @include visible(0);
+  background-color: var(--blue-dark-cl);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 150;
+  top: 0;
+  @include mid(true);
+  @include transition;
+  flex-direction: column;
+  .header__menu {
+    padding-top: var(--height-header);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    li {
+      padding: 20px;
+      a {
+        color: var(--white-cl);
+        @include transition;
+        &::after {
+          content: "";
+          width: 100%;
+          display: block;
+          height: 1px;
+          background-color: var(--white-cl);
+          transform: scaleX(0);
+          transform-origin: right;
+          @include transition(transform);
+        }
+        &:hover {
+          &::after {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+        }
+        &.--show {
+          font-family: db;
+          &:after {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+    .btn {
+      margin-top: 20px;
+    }
+  }
+  .blur {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @include maxH(450px) {
+    @include xs {
+      height: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+      .blur {
+        width: 150%;
+      }
+    }
+  }
+}

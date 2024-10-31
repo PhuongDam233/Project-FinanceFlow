@@ -1,0 +1,113 @@
+.tokenspage {
+  .titlemain {
+    padding-bottom: 101px;
+    .container {
+      padding-top: calc(var(--height-header) + 60px);
+    }
+    .textbox {
+      p {
+        max-width: 568px;
+        margin-top: 16px;
+      }
+    }
+    @include sm {
+      padding-bottom: 51px;
+    }
+    @include xxs {
+      .container {
+        padding-top: calc(var(--height-header) + 48px);
+      }
+      .textbox {
+        align-items: flex-start;
+        p {
+          text-align: left;
+          margin-top: 18px;
+        }
+      }
+    }
+  }
+  .tokens {
+    padding-bottom: 120px;
+    &__lap {
+      &-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr 0.8fr 0.8fr 0.3933fr;
+        padding-top: 43px;
+        padding-bottom: 43px;
+        border-bottom: 1px solid rgba(225, 225, 225, 0.1);
+      }
+    }
+    .tokens__row {
+      &-title {
+        font-size: 1.6rem;
+        letter-spacing: 0.1rem;
+        line-height: 1.8rem;
+        text-transform: uppercase;
+        font-family: db;
+      }
+      &-name {
+        display: flex;
+        align-items: center;
+        p {
+          padding: 0 16px;
+          font-size: 1.8rem;
+          letter-spacing: 0rem;
+          line-height: 2rem;
+          text-transform: uppercase;
+          font-family: db;
+        }
+        img {
+          @include size(46px, 46px);
+        }
+      }
+      &-desc {
+        p {
+          font-family: dr;
+          letter-spacing: var(--ls-body);
+          color: var(--white-cl);
+          font-size: var(--fs-body2);
+          line-height: var(--lh-body2);
+        }
+      }
+      &-market,
+      &-volume {
+        font-family: db;
+        letter-spacing: var(--ls-body);
+        color: var(--white-cl);
+        font-size: var(--fs-body2);
+        line-height: var(--lh-body2);
+      }
+      &-web {
+        a {
+          font-family: dr;
+          letter-spacing: var(--ls-body);
+          color: var(--white-cl);
+          font-size: var(--fs-body2);
+          line-height: var(--lh-body2);
+        }
+      }
+    }
+    &__mob {
+      display: none;
+    }
+    @include sm {
+      padding-bottom: 80px;
+      &__lap {
+        display: none;
+      }
+      &__mob {
+        display: initial;
+        &-item {
+          border-bottom: 1px solid rgba(225, 225, 225, 0.1);
+          padding-top: 32px;
+          padding-bottom: 36px;
+        }
+        .tokens__row {
+          &-title {
+            margin-bottom: 19px;
+          }
+        }
+      }
+    }
+  }
+}

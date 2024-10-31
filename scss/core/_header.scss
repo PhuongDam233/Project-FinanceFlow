@@ -1,0 +1,185 @@
+.header {
+  height: var(--height-header);
+  width: 100%;
+  max-width: var(--max-width-page);
+  z-index: 200;
+  @include dflexObj(flex, center, space-between);
+  position: fixed;
+  background-color: transparent;
+  @include transition;
+  &.bgtransparent {
+    background-color: transparent;
+  }
+  &.bgheader {
+    background: var(--blue-cl);
+  }
+  .container {
+    @include dflexObj(flex, center, space-between);
+    height: 66px;
+  }
+  &__left {
+    display: flex;
+    &-logo {
+      display: flex;
+      .financeFlow {
+        position: relative;
+        padding-right: 30px;
+        &::after {
+          content: "";
+          height: 66px;
+          width: 1px;
+          background: var(--blue-cl);
+          position: absolute;
+          right: 0;
+          @include midPositonY;
+        }
+      }
+    }
+    &-menu {
+      margin-left: 30px;
+      @include mid(true);
+      li {
+        padding: 0px 13px;
+        display: flex;
+        flex-direction: column;
+        &:first-child {
+          padding-left: 5px;
+        }
+        a {
+          color: var(--white-cl);
+          &::after {
+            content: "";
+            width: 100%;
+            display: block;
+            height: 1px;
+            background-color: var(--white-cl);
+            transform: scaleX(0);
+            transform-origin: right;
+            @include transition(transform);
+          }
+          &:hover {
+            &::after {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+          &.--show {
+            &:after {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__right {
+    .btn__blue {
+      background: var(--blue-light-cl);
+      color: var(--white-cl);
+      height: 56px;
+      padding: 0 32px;
+      border-radius: 80px;
+      @include transition;
+      cursor: pointer;
+      &:hover {
+        background: var(--white-cl);
+        color: var(--blue-light-cl);
+      }
+    }
+    &-btnmenu {
+      @include size(45px, 45px, true);
+      background-color: var(--blue-light-cl);
+      position: relative;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      gap: 7px;
+      &::before,
+      &::after,
+      span {
+        content: "";
+        display: block;
+        @include size(25px, 2px);
+        background-color: var(--white-cl);
+        transition: var(--duration);
+        position: absolute;
+      }
+      &::before {
+        top: 12px;
+        transform: translate(0, 0px) rotate(0);
+      }
+      &::after {
+        bottom: 12px;
+        transform: translate(0, 0px) rotate(0);
+      }
+      span {
+        opacity: 1;
+        @include midPositonY;
+      }
+      &.--active {
+        &::before {
+          transform: translate(0, 8px) rotate(-45deg);
+          @include transition;
+        }
+        span {
+          opacity: 0;
+          @include transition;
+        }
+        &::after {
+          transform: translate(0, -11px) rotate(45deg);
+          @include transition;
+        }
+      }
+    }
+  }
+  @include md {
+    &__left {
+      &-logo {
+        .financeFlow {
+          padding-right: initial;
+          &::after {
+            content: initial;
+          }
+        }
+      }
+      &-menu {
+        margin-left: 25px;
+      }
+    }
+  }
+  @include sm {
+    &__left {
+      // &-logo {
+      //   .financeFlow {
+      //     display: none;
+      //   }
+      //   .crypto {
+      //     max-width: 136px;
+      //     display: initial;
+      //   }
+      // }
+      &-menu {
+        display: none;
+      }
+    }
+    &__right {
+      .btn__blue {
+        display: none;
+      }
+      &-btnmenu {
+        display: flex;
+      }
+    }
+  }
+  @include xs {
+    &__left {
+      &-logo {
+        .financeFlow {
+          width: 136px;
+        }
+      }
+    }
+  }
+}
